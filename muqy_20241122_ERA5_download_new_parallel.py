@@ -68,7 +68,7 @@ def download_era5_data(year, month, day, download_dir):
 
     print(f"Checking if file {filename} exists and is complete...")
     
-
+    # !!! This version is for ERA5 downloaded in zip format !!!
     # Check if zip file exists and is complete
     if os.path.exists(filepath):
         try:
@@ -141,7 +141,8 @@ class DownloadWorker(threading.Thread):
 
 # Create four worker threads
 print("Creating worker threads...")
-for x in range(6):
+# We can queen 32 theads all in once!
+for x in range(32):
     worker = DownloadWorker(queue)
     worker.daemon = True
     worker.start()
