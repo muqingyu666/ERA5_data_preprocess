@@ -39,11 +39,6 @@ ERA5 downloads can take forever, especially if you’re downloading multiple dat
   - `zipfile`
   - `concurrent.futures` (built-in)
 
-To install the required dependencies, run:
-```bash
-pip install xarray h5netcdf
-```
-
 ## How to Use
 
 ### 1. Parallel Download
@@ -68,7 +63,7 @@ This script will:
 
 ### Output
 - The final NetCDF files are saved in your specified directory.
-- Files are compressed using zlib (level 4) to save disk space.
+- Files are compressed using zlib (level 4) to save disk space (If the dataset contains large part of NAN value of empty values, zlib can save a lot of disk space).
 
 ## Performance
 - **Fast I/O**: The `h5netcdf` engine ensures high-performance read/write operations.
